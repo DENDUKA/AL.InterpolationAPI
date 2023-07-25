@@ -1,3 +1,5 @@
 bin/
 obj/
 .vs/
+AL.Interpolation/bin/
+AL.Interpolation/obj/
