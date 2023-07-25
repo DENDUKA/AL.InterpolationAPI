@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  al.interpolation:
+    build:
+      context: ./
+      dockerfile: AL.Interpolation/Dockerfile
+    ports:
+      - "5090:80"   
+    restart: always
+    environment:
+      - HTTP_METHOD=noredirect

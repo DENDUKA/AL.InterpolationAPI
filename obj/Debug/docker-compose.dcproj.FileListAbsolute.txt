@@ -1,0 +1,14 @@
+D:\Programs\AL.Interpolation\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+D:\Programs\AL.Interpolation\bin\Debug\AL.Interpolation.deps.json
+D:\Programs\AL.Interpolation\bin\Debug\AL.Interpolation.runtimeconfig.json
+D:\Programs\AL.Interpolation\bin\Debug\appsettings.Development.json
+D:\Programs\AL.Interpolation\bin\Debug\appsettings.json
+D:\Programs\AL.Interpolation\bin\Debug\AL.Interpolation.exe
+D:\Programs\AL.Interpolation\bin\Debug\AL.Interpolation.dll
+D:\Programs\AL.Interpolation\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Programs\AL.Interpolation\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
+D:\Programs\AL.Interpolation\bin\Debug\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Programs\AL.Interpolation\bin\Debug\Microsoft.OpenApi.dll
+D:\Programs\AL.Interpolation\bin\Debug\AL.Interpolation.pdb
+D:\Programs\AL.Interpolation\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
+D:\Programs\AL.Interpolation\obj\Debug\docker-compose.dcproj.CopyComplete
