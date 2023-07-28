@@ -3,7 +3,8 @@ version: "3.9"
 services:
   al.interpolation:
     build:
-      dockerfile: AL.Interpolation/Dockerfile
+      dockerfile: src/AL.Interpolation/Dockerfile
     ports:
-      - "5090:80"
+      - "6090:80"
+      - "6091:443"
     restart: always
