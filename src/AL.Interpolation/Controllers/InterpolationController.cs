@@ -1,5 +1,6 @@
 ﻿using AL.Interpolation.API.DTO;
-using AL.Interpolation.API.Extensions;
+using AL.Interpolation.API.DTO.Validators;
+using AL.Interpolation.API.Servises;
 using AL.Interpolation.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,17 +10,23 @@ namespace AL.Interpolation.API.Controllers
     [Route("[controller]")]
     public class InterpolationController : Controller
     {
+        private readonly IInterpolationTaskRegistrationService _interpolationTaskRegistrationService;
         private readonly IAuthenticationService _authenticationService;
         private readonly IInterpolationService _interpolationService;
-        private readonly ILogger _logger;
+        private readonly ILogger<InterpolationController> _logger;
+        private readonly BSplineParametersResponceValidator _bSplineParametersValidator;
 
         public InterpolationController(
             IAuthenticationService authenticationService, 
             IInterpolationService interpolationService,
-            ILogger logger)
+            BSplineParametersResponceValidator bSplineParametersValidator,
+            ILogger<InterpolationController> logger,
+            IInterpolationTaskRegistrationService interpolationTaskRegistrationService)
         {
+            _interpolationTaskRegistrationService = interpolationTaskRegistrationService;
             _authenticationService = authenticationService;
             _interpolationService = interpolationService;
+            _bSplineParametersValidator = bSplineParametersValidator;
             _logger = logger;
         }
 
@@ -36,16 +43,14 @@ namespace AL.Interpolation.API.Controllers
                 return Unauthorized($"Нет свободных слотов");
             }
 
-            if (!await responce.Validate())
+            if (!(await _bSplineParametersValidator.ValidateAsync(responce)).IsValid)
             {
                 return BadRequest($"Входные данные не валидны");
             }
 
-            var id = Guid.NewGuid().ToString();
+            var taskId = await _interpolationTaskRegistrationService.RegistrationBSplineTask(authToken);
 
-            _logger.LogDebug($"Зарегистрирована новая задача {id}");
-
-            return Ok(id);
+            return Ok(taskId);
         }
     }
 }

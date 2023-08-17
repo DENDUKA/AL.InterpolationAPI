@@ -11,14 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.6.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AL.Interpolation.DAL\AL.Interpolation.DAL.csproj" />
     <ProjectReference Include="..\AL.Interpolation.Domain\AL.Interpolation.Domain.csproj" />
-    <ProjectReference Include="..\AL.Interpolation.Entities\AL.Interpolation.Entities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,11 @@
+using AL.Interpolation.API.DAL.Repositories.Interfaces;
+using AL.Interpolation.API.DAL.Repositories.Redis;
+using AL.Interpolation.API.DTO.Validators;
+using AL.Interpolation.API.Repositories.Redis;
+using AL.Interpolation.API.Servises;
 using AL.Interpolation.Domain.Interfaces;
 using AL.Interpolation.Domain.Services;
+using FluentValidation;
 
 namespace AL.Interpolation
 {
@@ -17,6 +23,14 @@ namespace AL.Interpolation
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
             builder.Services.AddScoped<IInterpolationService, InterpolationService>();
+
+            builder.Services.AddValidatorsFromAssemblyContaining<BSplineParametersResponceValidator>();
+
+            builder.Services.AddScoped<IInterpolationTaskRegistrationService, InterpolationTaskRegistrationService>();
+
+            builder.Services.AddRedis(builder.Configuration);
+
+            builder.Services.AddSingleton<IInterpolationRequestsRepository, RedisIntRequestsRepository>();
 
             var app = builder.Build();
 
