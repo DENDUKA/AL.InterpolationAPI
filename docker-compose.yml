@@ -1,6 +1,27 @@
 version: "3.9"
 
 services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    container_name: postgresBD
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    expose:
+      - "5432"
+    ports:
+      - 8000:5432
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 5454:5454/tcp
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@mydomain.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=5454
+
   al.interpolation:
     build:
       dockerfile: src/AL.Interpolation/Dockerfile
@@ -13,7 +34,7 @@ services:
     build:
       dockerfile: src/AL.Interpolation.Client/Dockerfile
     deploy:
-      replicas: 5
+      replicas: 2
     ports:
       - "6000-6100:80"
     depends_on:

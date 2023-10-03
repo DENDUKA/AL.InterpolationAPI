@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AL.Interpolation.Domain": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:22052;http://localhost:22057"
+    }
+  }
+}

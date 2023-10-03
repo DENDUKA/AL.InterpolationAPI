@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AL.Interpolation.Entities": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:22054;http://localhost:22056"
+    }
+  }
+}
