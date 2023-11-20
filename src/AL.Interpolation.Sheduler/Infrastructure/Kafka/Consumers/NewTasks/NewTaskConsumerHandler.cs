@@ -4,6 +4,7 @@
     {
         public Task Handle(string key, NewTaskDTO message, CancellationToken token)
         {
+            
             return Task.FromResult(0);
         }
     }
